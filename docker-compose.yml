@@ -1,0 +1,9 @@
+version: '3'
+services:
+  telegram_bot:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - TELEGRAM_BOT_API_TOKEN=${TELEGRAM_BOT_API_TOKEN}
+      - GROQ_API_KEY=${GROQ_API_KEY}
