@@ -5,3 +5,5 @@ python-dotenv
 huggingface-hub
 python-telegram-bot
 nest_asyncio
+asyncio
+groq
