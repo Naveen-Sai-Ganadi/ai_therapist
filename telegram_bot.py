@@ -23,6 +23,12 @@ from telegram import Update, BotCommand, MenuButtonDefault
 from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
 from dotenv import load_dotenv
 from groq_response import get_groq_response
+import speech_recognition as sr
+from PIL import Image
+import pytesseract
+import asyncio
+
+
 
 # Load environment variables
 load_dotenv()
@@ -73,12 +79,24 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         logger.error(f"Error generating response: {e}")
         await update.message.reply_text("Sorry, I couldn't process your request.")
 
+# Message handler for images
+async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    logger.info(f"Received photo from user {update.message.from_user.id}")
+    await update.message.reply_text("Sorry, I can only process text messages at the moment.")
+
+# Message handler for audio
+async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    logger.info(f"Received voice message from user {update.message.from_user.id}")
+    await update.message.reply_text("Sorry, I can only process text messages at the moment.")
+
 def main():
     application = Application.builder().token(TELEGRAM_BOT_API_TOKEN).build()
 
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("reset", reset))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    application.add_handler(MessageHandler(filters.PHOTO, handle_photo))
+    application.add_handler(MessageHandler(filters.VOICE, handle_voice))
 
     # Set the custom menu button
     bot = application.bot

@@ -8,3 +8,8 @@ asyncio
 groq
 requests
 flask
+audio_processing
+image_processing
+speechrecognition
+pillow
+pytesseract
