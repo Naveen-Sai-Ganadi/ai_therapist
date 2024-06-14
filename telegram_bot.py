@@ -57,9 +57,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "✅ Talk you through your day\n"
         "✅ Feel better by checking up on you\n\n"
         "You can\n"
-        "📣 Send me a voice message and I'll respond by voice\n"
-        "📸 Send me a photo of your day and we can discuss it\n"
-        "🔍 Send me a URL web address and we can discuss it\n\n"
+        # "📣 Send me a voice message and I'll respond by voice\n"
+        # "📸 Send me a photo of your day and we can discuss it\n"
+        # "🔍 Send me a URL web address and we can discuss it\n\n"
         "Write /reset at any moment to delete your entire convo history from our servers\n\n"
     )
     await update.message.reply_text(welcome_message)
