@@ -7,3 +7,4 @@ nest_asyncio
 asyncio
 groq
 requests
+flask

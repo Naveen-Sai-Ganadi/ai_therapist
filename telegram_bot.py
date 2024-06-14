@@ -1,3 +1,22 @@
+from flask import Flask
+import threading
+
+# Define Flask app
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running"
+
+# Function to run Flask app
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+# Start Flask app in a separate thread
+threading.Thread(target=run).start()
+
+
+
 import os
 import logging
 from telegram import Update, BotCommand, MenuButtonDefault
