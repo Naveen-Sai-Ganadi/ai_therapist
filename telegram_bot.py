@@ -23,10 +23,6 @@ from telegram import Update, BotCommand, MenuButtonDefault
 from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
 from dotenv import load_dotenv
 from groq_response import get_groq_response
-import speech_recognition as sr
-from PIL import Image
-import pytesseract
-import asyncio
 
 
 
