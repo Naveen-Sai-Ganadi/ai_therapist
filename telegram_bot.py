@@ -55,8 +55,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "📸 Send me a photo of your day and we can discuss it\n"
         "🔍 Send me a URL web address and we can discuss it\n\n"
         "Write /reset at any moment to delete your entire convo history from our servers\n\n"
-        "💡 Feedback\n"
-        "Have feedback, ideas and bugs for me? Visit https://ideasbugs.canny.io/therapist-ai"
     )
     await update.message.reply_text(welcome_message)
 
